@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title -->
+    <title>Daily Paisa - Smart Expense Tracker & Budget App</title>
+
+    <!-- Primary SEO -->
+    <meta
+      name="description"
+      content="Daily Paisa is a simple offline expense tracker app to manage your daily income, expenses, savings, and budget easily. Best personal finance app for Indians."
+    />
+
+    <meta
+      name="keywords"
+      content="expense tracker app, budget app India, daily expense manager, money manager app, offline expense tracker, personal finance app, income expense tracker, Daily Paisa app, paisa app India, budget planner app, खर्च ट्रॅकर, पैसा मॅनेजर app"
+    />
+
+    <meta name="author" content="Dream Mythics" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical -->
+    <link
+      rel="canonical"
+      href="https://play.google.com/store/apps/details?id=com.dailypaisa.app"
+    />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
+
+    <!-- Open Graph (Facebook / WhatsApp) -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Daily Paisa - Smart Expense Tracker App"
+    />
+    <meta
+      property="og:description"
+      content="Track your daily income, expenses and savings easily with Daily Paisa app. Simple, fast and offline budget tracker."
+    />
+    <meta
+      property="og:url"
+      content="https://play.google.com/store/apps/details?id=com.dailypaisa.app"
+    />
+    <meta
+      property="og:image"
+      content="https://yourdomain.com/assets/logo.png"
+    />
+
+    <!-- Twitter SEO -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Daily Paisa - Expense Tracker App" />
+    <meta
+      name="twitter:description"
+      content="Manage your income & expenses easily. Offline budget tracker for smart money management."
+    />
+    <meta
+      name="twitter:image"
+      content="https://yourdomain.com/assets/logo.png"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/tailwind-build.css" />
+    <link rel="stylesheet" href="css/index.css" />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body class="tw-flex tw-min-h-[100vh] tw-flex-col tw-bg-[#fff]">
+    <header
+      class="tw-absolute tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-bg-opacity-0 tw-px-[5%] max-lg:tw-mr-auto max-lg:tw-px-4 lg:tw-justify-around"
+    >
+      <a class="tw-h-[50px] tw-w-[50px] tw-p-[4px]" href="">
+        <img
+          src="./assets/logo.png"
+          alt="logo"
+          class="tw-object tw-h-full tw-w-full"
+        />
+      </a>
+      <div
+        class="collapsible-header animated-collapse max-lg:tw-shadow-md"
+        id="collapsed-header-items"
+      >
+        <div
+          class="tw-flex tw-h-full tw-w-max tw-gap-5 tw-text-base tw-text-black max-lg:tw-mt-[30px] max-lg:tw-flex-col max-lg:tw-place-items-end max-lg:tw-gap-5 lg:tw-mx-auto lg:tw-place-items-center"
+        >
+          <a
+            class="header-links"
+            href="https://www.dreammythic.com/studio/about"
+          >
+            About us
+          </a>
+          <a class="header-links" href="#pricing"> Pricing </a>
+          <a class="header-links" href=""> Features </a>
+          <a class="header-links" href=""> Blog </a>
+          <a
+            class="header-links"
+            href="https://www.dreammythic.com/studio/contacts"
+          >
+            Contact us
+          </a>
+        </div>
+        <div
+          class="tw-mx-4 tw-flex tw-place-items-center tw-gap-[20px] tw-text-base max-md:tw-w-full max-md:tw-flex-col max-md:tw-place-content-center"
+        >
+          <a
+            href="https://play.google.com/store/apps/details?id=com.dailypaisa.app"
+            aria-label="signup"
+            class="tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-rounded-full tw-bg-black tw-p-1 tw-pl-4 tw-text-white"
+          >
+            <span>Download</span>
+            <div
+              class="tw-flex tw-h-[30px] tw-w-[30px] tw-place-content-center tw-place-items-center tw-rounded-full tw-bg-primary tw-font-semibold tw-text-black"
+            >
+              <i class="bi bi-download"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+      <button
+        class="bi bi-list tw-absolute tw-right-3 tw-top-3 tw-z-50 tw-text-3xl tw-text-black lg:tw-hidden"
+        onclick="toggleHeader()"
+        aria-label="menu"
+        id="collapse-btn"
+      ></button>
+    </header>
+
+    <section
+      class="tw-relative tw-flex tw-min-h-[100vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-overflow-hidden max-lg:tw-p-4 max-md:tw-mt-[50px]"
+    >
+      <div
+        class="tw-flex tw-h-full tw-min-h-[100vh] tw-w-full tw-place-content-center tw-gap-6 tw-p-[5%] max-xl:tw-place-items-center max-lg:tw-flex-col"
+      >
+        <div class="tw-flex tw-flex-col tw-place-content-center">
+          <div
+            class="tw-flex tw-flex-wrap tw-text-6xl tw-font-semibold tw-uppercase tw-leading-[80px] max-lg:tw-text-4xl max-md:tw-leading-snug"
+          >
+            <span class="reveal-hero-text">
+              Track your money smartly with
+            </span>
+            <br />
+            <span class="reveal-hero-text"> Daily Paisa. </span>
+          </div>
+          <div
+            class="reveal-hero-text tw-mt-2 tw-max-w-[450px] tw-p-2 tw-text-justify max-lg:tw-max-w-full"
+          >
+            Manage your daily income and expenses easily. Stay in control of
+            your budget with a simple and offline-friendly finance tracker app.
+          </div>
+
+          <div
+            class="reveal-hero-text tw-mt-4 tw-flex tw-place-items-center tw-gap-4 tw-overflow-hidden tw-p-2"
+          >
+            <!-- App Store (optional - future use) -->
+            <a class="tw-h-[50px] tw-max-w-[150px]" href="#">
+              <img
+                src="./assets/images/brand-logos/app-store-badge.png"
+                alt="app store"
+                class="tw-h-full tw-w-full"
+              />
+            </a>
+
+            <!-- Google Play (IMPORTANT) -->
+            <a
+              class="tw-h-[50px] tw-max-w-[150px]"
+              href="https://play.google.com/store/apps/details?id=com.dailypaisa.app"
+              target="_blank"
+            >
+              <img
+                src="./assets/images/brand-logos/google-play-badge.png"
+                alt="Download on Google Play"
+                class="tw-h-full tw-w-full"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="tw-flex tw-w-full tw-max-w-[50%] tw-place-content-center tw-place-items-center tw-overflow-hidden max-lg:tw-max-w-[unset]"
+        >
+          <div
+            class="tw-relative tw-flex tw-max-h-[6000px] tw-min-h-[450px] tw-min-w-[350px] tw-max-w-[650px] tw-overflow-hidden max-lg:tw-h-fit max-lg:tw-max-h-[320px] max-lg:tw-min-h-[180px] max-lg:tw-w-[320px] max-lg:tw-min-w-[320px]"
+          >
+            <img
+              src="./assets/images/home/iphone.png"
+              alt="app"
+              class="reveal-hero-img tw-z-[1] tw-h-full tw-w-full tw-object-contain"
+            />
+
+            <div
+              class="tw-absolute tw-bottom-0 tw-left-1/2 tw-h-[80%] tw-w-[80%] tw--translate-x-1/2 tw-rounded-full tw-bg-secondary"
+              id="hero-img-bg"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    <section
+      class="tw-relative tw-flex tw-w-full tw-max-w-[100vw] tw-flex-col tw-place-content-center tw-place-items-center tw-overflow-hidden tw-p-6"
+    >
+      <div
+        class="reveal-up tw-flex tw-min-h-[300px] tw-w-full tw-max-w-[80%] tw-place-items-center tw-justify-around tw-gap-8 tw-rounded-xl tw-bg-[#e7e6e685] tw-p-4 max-lg:tw-max-w-full max-md:tw-flex-col"
+      >
+        <div class="tw-flex tw-flex-col tw-place-items-center tw-gap-4">
+          <div class="tw-flex tw-text-xl tw-text-orange-500">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-half"></i>
+          </div>
+          <span class="tw-text-lg">
+            <b>4.2/5</b>
+            <span>from 18k reviews</span>
+          </span>
+          <img
+            src="./assets/images/brand-logos/capterra.svg"
+            alt="capterra"
+            class="tw-h-[80px] tw-w-[250px]"
+          />
+        </div>
+        <div class="tw-flex tw-flex-col tw-place-items-center tw-gap-4">
+          <div class="tw-flex tw-text-xl tw-text-orange-500">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-half"></i>
+          </div>
+          <span class="tw-text-lg">
+            <b>4.6/5</b>
+            <span>from 20k reviews</span>
+          </span>
+          <img
+            src="./assets/images/brand-logos/G2.svg"
+            alt="G2"
+            class="tw-h-[80px]"
+          />
+        </div>
+        <div class="tw-flex tw-flex-col tw-place-items-center tw-gap-4">
+          <div class="tw-flex tw-text-xl tw-text-orange-500">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-half"></i>
+          </div>
+          <span class="tw-text-lg">
+            <b>4.5/5</b>
+            <span>from 6k reviews</span>
+          </span>
+          <img
+            src="./assets/images/brand-logos/trust-pilot.svg"
+            alt="capterra"
+            class="tw-h-[80px] tw-w-[250px]"
+          />
+        </div>
+      </div>
+    </section>
+      -->
+
+    <section
+      class="tw-relative tw-flex tw-w-full tw-max-w-[100vw] tw-flex-col tw-overflow-hidden tw-p-6"
+    >
+      <div
+        class="reveal-up tw-flex tw-min-h-[60vh] tw-place-content-center tw-place-items-center tw-gap-[10%] max-lg:tw-flex-col max-lg:tw-gap-10"
+      >
+        <div class="tw-flex">
+          <div class="tw-h-[450px] tw-w-[300px]">
+            <img
+              src="./assets/images/home/2.png"
+              alt="product1"
+              class="tw-h-full tw-w-full tw-object-contain"
+            />
+          </div>
+        </div>
+        <div class="tw-mt-6 tw-flex tw-max-w-[450px] tw-flex-col tw-gap-4">
+          <h3 class="tw-text-4xl tw-font-medium">
+            Track Your Daily Expenses Easily
+          </h3>
+
+          <div class="tw-mt-4 tw-flex tw-flex-col tw-gap-3">
+            <h4 class="tw-text-xl tw-font-medium">
+              <i class="bi bi-check-all !tw-text-2xl"></i>
+              Add Income & Expenses Instantly
+            </h4>
+            <span class="tw-text-xl">
+              Record your daily transactions in seconds. Keep track of where
+              your money comes from and where it goes without any hassle.
+            </span>
+          </div>
+          <div class="tw-mt-4 tw-flex tw-flex-col tw-gap-3">
+            <h4 class="tw-text-xl tw-font-medium">
+              <i class="bi bi-check-all !tw-text-2xl"></i>
+              Clean & Beginner-Friendly Design
+            </h4>
+            <span class="tw-text-xl">
+              Designed for simplicity so anyone can use it easily. No technical
+              knowledge required — just open the app and start tracking.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="tw-relative tw-flex tw-w-full tw-max-w-[100vw] tw-flex-col tw-overflow-hidden tw-p-6"
+    >
+      <div
+        class="reveal-up tw-flex tw-min-h-[60vh] tw-place-content-center tw-place-items-center tw-gap-[10%] max-lg:tw-flex-col max-lg:tw-gap-10"
+      >
+        <div class="tw-mt-6 tw-flex tw-max-w-[450px] tw-flex-col tw-gap-4">
+          <h3 class="tw-text-4xl tw-font-medium">
+            Fast, Lightweight & Always Available
+          </h3>
+
+          <div class="tw-mt-4 tw-flex tw-flex-col tw-gap-3">
+            <h4 class="tw-text-xl tw-font-medium">
+              <i class="bi bi-check-all !tw-text-2xl"></i>
+              Works Completely Offline
+            </h4>
+            <span class="tw-text-xl">
+              No internet? No problem. Daily Paisa works fully offline, allowing
+              you to manage your money anytime, anywhere without interruptions.
+            </span>
+          </div>
+          <div class="tw-mt-4 tw-flex tw-flex-col tw-gap-3">
+            <h4 class="tw-text-xl tw-font-medium">
+              <i class="bi bi-check-all !tw-text-2xl"></i>
+              Super Fast Performance
+            </h4>
+            <span class="tw-text-xl">
+              Add and view transactions instantly with a smooth and responsive
+              experience designed for everyday use.
+            </span>
+          </div>
+        </div>
+
+        <div class="tw-flex">
+          <div class="tw-h-[450px] tw-w-[300px]">
+            <img
+              src="./assets/images/home/4.png"
+              alt="product1"
+              class="tw-h-full tw-w-full tw-object-contain"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="tw-relative tw-flex tw-w-full tw-max-w-[100vw] tw-flex-col tw-place-content-center tw-place-items-center tw-overflow-hidden tw-p-6"
+    >
+      <div
+        class="reveal-up tw-flex tw-min-h-[300px] tw-w-full tw-place-content-center tw-place-items-center tw-gap-8 tw-rounded-xl tw-p-4 max-lg:tw-flex-col"
+      >
+        <div
+          class="tw-flex tw-h-[450px] tw-w-[350px] tw-flex-col tw-gap-[5%] tw-rounded-xl tw-bg-[#FFD5CA] tw-p-8"
+        >
+          <div
+            class="tw-flex tw-h-[80px] tw-w-[80px] tw-place-content-center tw-items-center tw-rounded-full tw-bg-white"
+          >
+            <i class="material-icons md-40">bolt</i>
+          </div>
+
+          <h3 class="tw-mt-5 tw-text-3xl tw-font-medium">
+            Fast & Simple Tracking
+          </h3>
+          <p class="tw-text-lg">
+            Add your daily income and expenses in just a few taps without any
+            delay. The app is designed to be fast, smooth, and easy so you can
+            track your finances anytime without wasting time.
+          </p>
+        </div>
+
+        <div
+          class="tw-flex tw-h-[450px] tw-w-[350px] tw-flex-col tw-gap-[5%] tw-rounded-xl tw-bg-primary tw-p-8"
+        >
+          <div
+            class="tw-flex tw-h-[80px] tw-w-[80px] tw-place-content-center tw-items-center tw-rounded-full tw-bg-white"
+          >
+            <i class="material-icons md-40">insights</i>
+          </div>
+
+          <h3 class="tw-mt-5 tw-text-3xl tw-font-medium">
+            Smart Money Insights
+          </h3>
+          <p class="tw-text-lg">
+            Get a clear understanding of your spending habits with simple daily
+            and monthly summaries. Make better financial decisions by knowing
+            exactly where your money goes.
+          </p>
+        </div>
+        <div
+          class="tw-flex tw-h-[450px] tw-w-[350px] tw-flex-col tw-gap-[5%] tw-rounded-xl tw-bg-[#FFEB99] tw-p-8"
+        >
+          <div
+            class="tw-flex tw-h-[80px] tw-w-[80px] tw-place-content-center tw-items-center tw-rounded-full tw-bg-white"
+          >
+            <i class="material-icons md-40">shield</i>
+          </div>
+
+          <h3 class="tw-mt-5 tw-text-3xl tw-font-medium">Private & Secure</h3>
+          <p class="tw-text-lg">
+            Your financial data stays Secure on your device. Daily Paisa does
+            not require unnecessary permissions, giving you full control and
+            privacy over your personal information.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="tw-mt-5 tw-flex tw-min-h-[60vh] tw-w-full tw-flex-col tw-place-content-center tw-place-items-center tw-bg-black tw-p-[2%] tw-text-white max-lg:tw-min-h-[40vh]"
+    >
+      <h3 class="reveal-up tw-text-5xl tw-font-medium max-md:tw-text-2xl">
+        Users love Daily Paisa
+      </h3>
+      <!-- Testimonials -->
+      <div class="reveal-up tw-max-w-[750px] max-md:tw-max-w-[100vw]">
+        <div class="swiper tw-mt-8 tw-flex tw-flex-col tw-gap-10 tw-space-y-8">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide tw-flex tw-place-content-center">
+              <div
+                class="tw-flex tw-h-fit tw-max-w-[750px] tw-place-content-center tw-place-items-center tw-gap-10 tw-rounded-lg tw-p-4 tw-shadow-lg"
+              >
+                <div class="tw-flex tw-place-items-center">
+                  <div
+                    class="tw-h-[150px] tw-w-[150px] tw-overflow-hidden tw-rounded-full max-lg:tw-h-[80px] max-lg:tw-w-[80px]"
+                  >
+                    <img
+                      src="./assets/images/people/women.jpg"
+                      class="tw-h-full tw-w-full tw-object-cover"
+                      alt="women"
+                    />
+                  </div>
+                </div>
+                <div class="tw-flex tw-max-w-[450px] tw-flex-col tw-gap-4">
+                  <p class="tw-mt-4 tw-italic tw-text-gray-200">
+                    "Daily Paisa is one of the simplest expense tracker apps
+                    I’ve used. I can easily track my daily spending without any
+                    confusion. The offline feature is super helpful!"
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide tw-flex tw-place-content-center">
+              <div
+                class="tw-flex tw-h-fit tw-max-w-[750px] tw-place-content-center tw-place-items-center tw-gap-10 tw-rounded-lg tw-p-4 tw-shadow-lg"
+              >
+                <div class="tw-flex tw-place-items-center">
+                  <div
+                    class="tw-h-[150px] tw-w-[150px] tw-overflow-hidden tw-rounded-full max-lg:tw-h-[80px] max-lg:tw-w-[80px]"
+                  >
+                    <img
+                      src="./assets/images/people/women.jpg"
+                      class="tw-h-full tw-w-full tw-object-cover"
+                      alt="women"
+                    />
+                  </div>
+                </div>
+                <div class="tw-flex tw-max-w-[450px] tw-flex-col tw-gap-4">
+                  <p class="tw-mt-4 tw-italic tw-text-gray-200">
+                    "Great app by Dream Mythics! Helps me stay in control of my
+                    money and understand my spending habits better. Highly
+                    recommended."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="pagination-container tw-flex tw-place-content-center"
+          ></div>
+
+          <div class="tw-flex tw-place-content-center tw-gap-6">
+            <div
+              class="testmonial-prev tw-flex tw-h-[40px] tw-w-[40px] tw-place-content-center tw-place-items-center tw-rounded-full tw-border-2 tw-border-solid tw-border-gray-300 tw-text-2xl"
+            >
+              <i class="bi bi-arrow-left"></i>
+            </div>
+            <div
+              class="testmonial-next tw-flex tw-h-[40px] tw-w-[40px] tw-place-content-center tw-place-items-center tw-rounded-full tw-border-2 tw-border-solid tw-border-gray-300 tw-text-2xl"
+            >
+              <i class="bi bi-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="tw-relative tw-flex tw-min-h-[80vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-place-content-center tw-place-items-center tw-overflow-hidden tw-p-6"
+      id=""
+    >
+      <div class="tw-mt-8 tw-flex tw-flex-col tw-place-items-center tw-gap-5">
+        <div
+          class="reveal-up tw-mt-5 tw-flex tw-flex-col tw-gap-3 tw-text-center"
+        >
+          <h2 class="tw-text-4xl tw-font-semibold">
+            Take Control of Your Money with Daily Paisa
+          </h2>
+        </div>
+        <div
+          class="tw-mt-6 tw-flex tw-max-w-[60%] tw-flex-wrap tw-place-content-center tw-gap-2 max-lg:tw-flex-col"
+        >
+          <div
+            class="reveal-up tw-flex tw-h-[150px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4"
+          >
+            <!-- <img src="./assets/images/home/sample.jpg" 
+                                alt="feature1"> -->
+            <div class="tw-flex tw-gap-1">
+              <i class="bi bi-boombox-fill tw-text-2xl"></i>
+              <h3 class="tw-text-2xl tw-font-semibold">
+                Track Income & Expenses
+              </h3>
+            </div>
+            <div class="tw-text-[#595959]">
+              Easily record your daily income and expenses and keep everything
+              organized in one place.
+            </div>
+          </div>
+          <div
+            class="reveal-up tw-flex tw-h-[150px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4"
+          >
+            <!-- <img src="./assets/images/home/sample.jpg" 
+                                alt="feature1"> -->
+            <div class="tw-flex tw-gap-1">
+              <i class="bi bi-0-circle-fill tw-text-2xl"></i>
+              <h3 class="tw-text-2xl tw-font-semibold">Works Offline</h3>
+            </div>
+            <div class="tw-text-[#595959]">
+              No internet required. Manage your money anytime, anywhere without
+              interruptions.
+            </div>
+          </div>
+          <div
+            class="reveal-up tw-flex tw-h-[150px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4"
+          >
+            <!-- <img src="./assets/images/home/sample.jpg" 
+                                alt="feature1"> -->
+            <div class="tw-flex tw-gap-1">
+              <i class="bi bi-0-square-fill tw-text-2xl"></i>
+              <h3 class="tw-text-2xl tw-font-semibold">
+                Daily & Monthly Reports
+              </h3>
+            </div>
+            <div class="tw-text-[#595959]">
+              Get clear insights into your spending with easy-to-understand
+              reports and summaries.
+            </div>
+          </div>
+          <div
+            class="reveal-up tw-flex tw-h-[150px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4"
+          >
+            <!-- <img src="./assets/images/home/sample.jpg" 
+                                alt="feature1"> -->
+            <div class="tw-flex tw-gap-1">
+              <i class="bi bi-airplane-engines-fill tw-text-2xl"></i>
+              <h3 class="tw-text-2xl tw-font-semibold">Simple & Clean UI</h3>
+            </div>
+            <div class="tw-text-[#595959]">
+              Designed for simplicity so anyone can use it without confusion or
+              learning curve.
+            </div>
+          </div>
+          <div
+            class="reveal-up tw-flex tw-h-[150px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4"
+          >
+            <!-- <img src="./assets/images/home/sample.jpg" 
+                                alt="feature1"> -->
+            <div class="tw-flex tw-gap-1">
+              <i class="bi bi-cake-fill tw-text-2xl"></i>
+              <h3 class="tw-text-2xl tw-font-semibold">Fast & Lightweight</h3>
+            </div>
+            <div class="tw-text-[#595959]">
+              Smooth performance with minimal storage usage, perfect for all
+              devices.
+            </div>
+          </div>
+          <div
+            class="reveal-up tw-flex tw-h-[150px] tw-w-[350px] tw-flex-col tw-gap-2 tw-p-4"
+          >
+            <!-- <img src="./assets/images/home/sample.jpg" 
+                                alt="feature1"> -->
+            <div class="tw-flex tw-gap-1">
+              <i class="bi bi-shield-fill tw-text-2xl"></i>
+              <h3 class="tw-text-2xl tw-font-semibold">Private & Secure</h3>
+            </div>
+            <div class="tw-text-[#595959]">
+              Your data stays Secure on your device with full privacy and
+              control.
+            </div>
+          </div>
+        </div>
+
+        <a
+          href="https://play.google.com/store/apps/details?id=com.dailypaisa.app"
+          aria-label="download"
+          class="reveal-up tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-rounded-full tw-bg-black tw-p-1 tw-pl-4 tw-text-white"
+        >
+          <span>Download</span>
+          <div
+            class="tw-flex tw-h-[30px] tw-w-[30px] tw-place-content-center tw-place-items-center tw-rounded-full tw-bg-primary tw-font-semibold tw-text-black"
+          >
+            <i class="bi bi-download"></i>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!--
+  <section
+      class="tw-mt-5 tw-flex tw-w-full tw-flex-col tw-place-items-center tw-p-[2%]"
+    >
+      <h3 class="reveal-up tw-text-4xl tw-font-medium max-md:tw-text-2xl">
+        Read our articles for more insights
+      </h3>
+     
+      <div
+        class="reveal-up tw-mt-10 tw-flex tw-flex-wrap tw-place-content-center tw-gap-10 max-lg:tw-flex-col"
+      >
+        <a
+          href=""
+          class="tw-flex tw-h-[400px] tw-w-[350px] tw-flex-col tw-gap-2 tw-overflow-clip tw-rounded-lg tw-bg-[#edecec79] tw-p-4 tw-shadow-xl max-lg:tw-w-[300px]"
+        >
+          <div class="tw-h-[200px] tw-w-full tw-overflow-hidden tw-rounded-md">
+            <img
+              src="./assets/images/home/sample.jpg"
+              alt="article image"
+              class="tw-h-full tw-w-full tw-object-cover"
+              srcset=""
+            />
+          </div>
+          <h3 class="tw-text-2xl tw-font-semibold max-md:tw-text-xl">
+            Article 1
+          </h3>
+          <p class="tw-mt-2 tw-text-gray-600">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab,
+            explicabo!
+          </p>
+          <span>
+            <span>Learn more</span>
+            <i class="bi bi-arrow-right"></i>
+          </span>
+        </a>
+        <a
+          href=""
+          class="tw-flex tw-h-[400px] tw-w-[350px] tw-flex-col tw-gap-2 tw-overflow-clip tw-rounded-lg tw-bg-[#edecec79] tw-p-4 tw-shadow-xl max-lg:tw-w-[300px]"
+        >
+          <div class="tw-h-[200px] tw-w-full tw-overflow-hidden tw-rounded-md">
+            <img
+              src="./assets/images/home/sample.jpg"
+              alt="article image"
+              class="tw-h-full tw-w-full tw-object-cover"
+              srcset=""
+            />
+          </div>
+          <h3 class="tw-text-2xl tw-font-semibold max-md:tw-text-xl">
+            Article 2
+          </h3>
+          <p class="tw-mt-2 tw-text-gray-600">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab,
+            explicabo!
+          </p>
+          <span>
+            <span>Learn more</span>
+            <i class="bi bi-arrow-right"></i>
+          </span>
+        </a>
+        <a
+          href=""
+          class="tw-flex tw-h-[400px] tw-w-[350px] tw-flex-col tw-gap-2 tw-overflow-clip tw-rounded-lg tw-bg-[#edecec79] tw-p-4 tw-shadow-xl max-lg:tw-w-[300px]"
+        >
+          <div class="tw-h-[200px] tw-w-full tw-overflow-hidden tw-rounded-md">
+            <img
+              src="./assets/images/home/sample.jpg"
+              alt="article image"
+              class="tw-h-full tw-w-full tw-object-cover"
+              srcset=""
+            />
+          </div>
+          <h3 class="tw-text-2xl tw-font-semibold max-md:tw-text-xl">
+            Article 3
+          </h3>
+          <p class="tw-mt-2 tw-text-gray-600">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab,
+            explicabo!
+          </p>
+          <span>
+            <span>Learn more</span>
+            <i class="bi bi-arrow-right"></i>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section
+      class="tw-flex tw-w-full tw-flex-col tw-place-content-center tw-place-items-center tw-gap-[10%] tw-p-[5%] tw-px-[10%]"
+    >
+      <div
+        class="tw-flex tw-w-full tw-flex-col tw-place-content-center tw-place-items-center tw-gap-3"
+      >
+        <h2 class="tw-text-xl max-md:tw-text-lg">Keep yourself updated</h2>
+
+        <div
+          class="tw-flex tw-h-[60px] tw-place-items-center tw-gap-2 tw-overflow-hidden tw-p-2"
+        >
+          <input
+            type="email"
+            class="input tw-h-full tw-w-full tw-p-2 tw-outline-none"
+            placeholder="email"
+          />
+          <a class="btn tw-transition-colors tw-duration-[0.3s]" href="">
+            Signup
+          </a>
+        </div>
+      </div>
+    </section>
+
+      -->
+
+    <footer
+      class="tw-mt-auto tw-flex tw-w-full tw-place-content-around tw-gap-6 tw-p-[5%] tw-px-[10%] tw-text-black max-md:tw-flex-col"
+    >
+      <div
+        class="tw-flex tw-h-full tw-w-[250px] tw-flex-col tw-place-items-start tw-gap-4 max-md:tw-w-full"
+      >
+        <img
+          src="./assets/logo.png"
+          alt="Daily Paisa Logo"
+          class="tw-w-[80px] tw-h-auto"
+        />
+
+        <div class="tw-mt-3 tw-text-lg tw-font-semibold">Follow us</div>
+
+        <div class="tw-flex tw-gap-4 tw-text-2xl">
+          <a href="#" aria-label="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a
+            href="https://www.youtube.com/@DreamMythicstudio"
+            aria-label="Youtube"
+          >
+            <i class="bi bi-youtube"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/dreammythic.official/"
+            aria-label="Instagram"
+          >
+            <i class="bi bi-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Company -->
+      <div class="tw-flex tw-h-full tw-w-[250px] tw-flex-col tw-gap-4">
+        <h2 class="tw-text-2xl tw-font-semibold">Company</h2>
+
+        <div class="tw-flex tw-flex-col tw-gap-3 tw-text-sm">
+          <a href="#" class="footer-link">About Daily Paisa</a>
+          <a
+            href="https://www.dreammythic.com/studio/contacts"
+            class="footer-link"
+            >Contact Us</a
+          >
+          <a href="#" class="footer-link">Support</a>
+        </div>
+      </div>
+
+      <!-- Resources -->
+      <div class="tw-flex tw-h-full tw-w-[250px] tw-flex-col tw-gap-4">
+        <h2 class="tw-text-2xl tw-font-semibold">Resources</h2>
+
+        <div class="tw-flex tw-flex-col tw-gap-3 tw-text-sm">
+          <a
+            href="https://www.dreammythic.com/studio/privacy-policy"
+            class="footer-link"
+            >Privacy Policy</a
+          >
+          <a
+            href="https://www.dreammythic.com/studio/terms-conditions"
+            class="footer-link"
+            >Terms & Conditions</a
+          >
+
+          <a
+            href="https://play.google.com/store/apps/details?id=com.dailypaisa.app"
+            target="_blank"
+            class="footer-link"
+          >
+            Download App
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="tw-w-full tw-text-center tw-p-4 tw-text-sm tw-text-gray-500">
+      © 2026 Daily Paisa. All rights reserved. | A product by
+      <b>Dream Mythics</b>
+    </div>
+  </body>
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"
+    integrity="sha512-B1lby8cGcAUU3GR+Fd809/ZxgHbfwJMp0jLTVfHiArTuUt++VqSlJpaJvhNtRf3NERaxDNmmxkdx2o+aHd4bvw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"
+    integrity="sha512-AY2+JxnBETJ0wcXnLPCcZJIJx0eimyhz3OJ55k2Jx4RtYC+XdIi2VtJQ+tP3BaTst4otlGG1TtPJ9fKrAUnRdQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+
+  <script src="./index.js"></script>
+
+  <style>
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      text-align: center;
+      /* font-size: 12px; */
+      opacity: 1;
+      background: #f7f7f7fa;
+      left: auto;
+    }
+    .swiper-pagination-bullet:hover {
+      color: #000;
+      opacity: 1;
+      background: #ede0e0bd;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #f39696 !important;
+    }
+
+    .swiper {
+      padding: 10px !important;
+    }
+  </style>
+
+  <script>
+    const swiper = new Swiper(".swiper", {
+      // Optional parameters
+      direction: "horizontal",
+      loop: true,
+      centeredSlides: true,
+
+      // If we need pagination
+      pagination: {
+        el: ".pagination-container",
+        clickable: true,
+        renderBullet: function (index, className) {
+          return `<span class="${className}"></span>`;
+        },
+      },
+      // Navigation arrows
+      navigation: {
+        nextEl: ".testmonial-next",
+        prevEl: ".testmonial-prev",
+      },
+    });
+  </script>
+</html>
