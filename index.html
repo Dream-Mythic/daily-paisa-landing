@@ -735,6 +735,60 @@
 
       -->
 
+    <dialog
+      class="newsletter-dialog"
+      id="newsletter-dialog"
+      aria-labelledby="newsletter-title"
+      aria-describedby="newsletter-description"
+    >
+      <button
+        class="newsletter-close"
+        id="newsletter-close"
+        type="button"
+        aria-label="Close newsletter signup"
+      >
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+      </button>
+      <div class="newsletter-content">
+        <span class="newsletter-eyebrow">DAILY PAISA NEWSLETTER</span>
+        <h2 id="newsletter-title">A little more money-smart, every week.</h2>
+        <p id="newsletter-description">
+          Get useful tips and updates from Daily Paisa straight to your inbox.
+        </p>
+        <form class="newsletter-form" id="newsletter-form">
+          <label for="newsletter-email">Email address</label>
+          <input
+            class="input newsletter-email"
+            id="newsletter-email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          />
+          <label class="newsletter-consent" for="newsletter-consent">
+            <input
+              id="newsletter-consent"
+              name="consent"
+              type="checkbox"
+              checked
+              required
+            />
+            <span>I agree to receive newsletter emails from Daily Paisa.</span>
+          </label>
+          <button class="btn newsletter-submit" id="newsletter-submit" type="submit">
+            Subscribe
+          </button>
+          <p
+            class="newsletter-status"
+            id="newsletter-status"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </form>
+      </div>
+    </dialog>
+
     <footer
       class="tw-mt-auto tw-flex tw-w-full tw-place-content-around tw-gap-6 tw-p-[5%] tw-px-[10%] tw-text-black max-md:tw-flex-col"
     >
@@ -793,6 +847,13 @@
             class="footer-link"
             >Privacy Policy</a
           >
+          <button
+            class="footer-link newsletter-open-button"
+            type="button"
+            data-open-newsletter
+          >
+            Newsletter signup
+          </button>
           <a
             href="https://www.dreammythic.com/studio/terms-conditions"
             class="footer-link"

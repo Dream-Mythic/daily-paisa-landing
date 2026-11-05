@@ -99,7 +99,84 @@ window.addEventListener("load", () => {
         duration: 0.8,
         delay: 0.4
     })
-    
+
+})
+
+const NEWSLETTER_API_ENDPOINT = "http://localhost:8000/api/v1/email"
+const newsletterDialog = document.getElementById("newsletter-dialog")
+const newsletterForm = document.getElementById("newsletter-form")
+const newsletterEmail = document.getElementById("newsletter-email")
+const newsletterConsent = document.getElementById("newsletter-consent")
+const newsletterSubmit = document.getElementById("newsletter-submit")
+const newsletterStatus = document.getElementById("newsletter-status")
+
+
+
+function openNewsletterDialog() {
+    if (!newsletterDialog.open) {
+        newsletterDialog.showModal()
+    }
+    newsletterEmail.focus()
+}
+
+document.querySelectorAll("[data-open-newsletter]").forEach((button) => {
+    button.addEventListener("click", openNewsletterDialog)
+})
+
+document.getElementById("newsletter-close").addEventListener("click", () => {
+    newsletterDialog.close()
+
+})
+
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        openNewsletterDialog()
+    }, 3000)
+})
+
+
+newsletterForm.addEventListener("submit", async (event) => {
+    event.preventDefault()
+
+    newsletterStatus.textContent = ""
+    newsletterStatus.removeAttribute("data-state")
+    newsletterSubmit.disabled = true
+    newsletterSubmit.textContent = "Subscribing..."
+
+    try {
+        const email = newsletterEmail.value.trim()
+        const name = email.split("@")[0]
+
+        const response = await fetch(NEWSLETTER_API_ENDPOINT, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email,
+                name,
+            }),
+        })
+
+        if (!response.ok) {
+            throw new Error(`Newsletter signup failed (${response.status}).`)
+        }
+
+        newsletterStatus.textContent = "Thanks for subscribing!"
+        newsletterForm.reset()
+        newsletterDialog.close()
+
+    } catch (error) {
+        console.error("Newsletter signup failed:", error)
+
+        newsletterStatus.dataset.state = "error"
+        newsletterStatus.textContent =
+            "We couldn't subscribe you right now. Please try again."
+
+    } finally {
+        newsletterSubmit.disabled = false
+        newsletterSubmit.textContent = "Subscribe"
+    }
 })
 
 
@@ -109,14 +186,16 @@ const sections = gsap.utils.toArray("section")
 
 sections.forEach((sec) => {
 
-    const revealUptimeline = gsap.timeline({paused: true, 
-                                            scrollTrigger: {
-                                                            trigger: sec,
-                                                            start: "10% 80%", // top of trigger hits the top of viewport
-                                                            end: "20% 90%",
-                                                            // markers: true,
-                                                            // scrub: 1,
-                                                        }})
+    const revealUptimeline = gsap.timeline({
+        paused: true,
+        scrollTrigger: {
+            trigger: sec,
+            start: "10% 80%", // top of trigger hits the top of viewport
+            end: "20% 90%",
+            // markers: true,
+            // scrub: 1,
+        }
+    })
 
     revealUptimeline.to(sec.querySelectorAll(".reveal-up"), {
         opacity: 1,
@@ -127,6 +206,5 @@ sections.forEach((sec) => {
 
 
 })
-
 
 

@@ -171,6 +171,135 @@ header > .collapsible-header{
     /* background-color: #dedddd; */
 }
 
+.newsletter-dialog {
+    position: fixed;
+    inset: 0;
+    width: min(92vw, 480px);
+    max-width: none;
+    max-height: min(90vh, 720px);
+    margin: auto;
+    padding: 0;
+    overflow: auto;
+    border: 0;
+    border-radius: 24px;
+    background: #fff;
+    color: #0d0d0d;
+    box-shadow: 0 24px 80px #0003;
+}
+
+.newsletter-dialog::backdrop {
+    background: #101010a6;
+    backdrop-filter: blur(4px);
+}
+
+.newsletter-content {
+    padding: 42px;
+}
+
+.newsletter-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    border-radius: 50%;
+    background: #f1f1f1;
+    color: #0d0d0d;
+    cursor: pointer;
+}
+
+.newsletter-eyebrow {
+    color: #638f21;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.newsletter-content h2 {
+    margin: 14px 0 10px;
+    font-size: clamp(26px, 6vw, 34px);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.newsletter-content > p {
+    margin: 0;
+    color: #5f5f5f;
+    line-height: 1.6;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 26px;
+}
+
+.newsletter-form > label:first-child {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.newsletter-email {
+    width: 100%;
+    min-height: 48px;
+    border-radius: 12px;
+}
+
+.newsletter-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    color: #555;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.newsletter-consent input {
+    width: 16px;
+    height: 16px;
+    margin: 2px 0 0;
+    accent-color: #0d0d0d;
+}
+
+.newsletter-submit {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 4px;
+    border-radius: 12px;
+}
+
+.newsletter-submit:disabled {
+    opacity: 0.65;
+}
+
+.newsletter-status {
+    min-height: 20px;
+    margin: 0;
+    color: #315f0b;
+    font-size: 14px;
+}
+
+.newsletter-status[data-state="error"] {
+    color: #b42318;
+}
+
+.newsletter-open-button {
+    width: max-content;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.newsletter-open-button:hover {
+    color: var(--footer-link-hover);
+}
+
 @media not all and (min-width: 1024px) {
     header .collapsible-header {
         position: fixed;
@@ -196,4 +325,10 @@ header > .collapsible-header{
         color: black;
     }
     
+}
+
+@media (max-width: 480px) {
+    .newsletter-content {
+        padding: 38px 24px 28px;
+    }
 }
