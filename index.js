@@ -102,7 +102,6 @@ window.addEventListener("load", () => {
 
 })
 
-const NEWSLETTER_API_ENDPOINT = "http://localhost:8000/api/v1/email"
 const newsletterDialog = document.getElementById("newsletter-dialog")
 const newsletterForm = document.getElementById("newsletter-form")
 const newsletterEmail = document.getElementById("newsletter-email")
@@ -147,7 +146,7 @@ newsletterForm.addEventListener("submit", async (event) => {
         const email = newsletterEmail.value.trim()
         const name = email.split("@")[0]
 
-        const response = await fetch(NEWSLETTER_API_ENDPOINT, {
+        const response = await fetch(window.APP_CONFIG.API_URL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
